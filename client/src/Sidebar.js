@@ -5,7 +5,7 @@ const Sidebar = ({setSelectedDate, selectedDate}) => {
 
     return (
         <div className="sidebar">
-            <Calendar setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
+            <Calendar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
         </div>
     )
     

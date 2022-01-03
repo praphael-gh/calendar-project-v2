@@ -22,7 +22,7 @@ private
     end
 
     def find_day
-        Day.find(params[:id])
+        Day.find_by(params[:date])
     end
 
 end
