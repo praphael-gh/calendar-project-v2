@@ -1,11 +1,11 @@
 import Calendar from "./Calendar"
 import "./Sidebar.css"
 
-const Sidebar = ({eventDate}) => {
+const Sidebar = ({setSelectedDate, selectedDate}) => {
 
     return (
         <div className="sidebar">
-            <Calendar eventDate={eventDate} />
+            <Calendar setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
         </div>
     )
     
