@@ -15,11 +15,13 @@ import {
 
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-const Calendar = () => {
+const Calendar = ({eventDate}) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [activeDate, setActiveDate] = useState(new Date());
+
   console.log(activeDate.toLocaleDateString("en-US"),
             selectedDate.toLocaleDateString("en-US"))
+
   const getHeader = () => {
     return (
       <div className="header">
@@ -72,6 +74,7 @@ const Calendar = () => {
           ${isSameDay(currentDate, new Date()) ? "today" : ""}`}
           onClick={() => {
             setSelectedDate(cloneDate);
+            eventDate(cloneDate.toLocaleDateString("en-US"));
           }}
         >
           {format(currentDate, "d")}

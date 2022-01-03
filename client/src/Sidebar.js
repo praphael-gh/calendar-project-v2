@@ -1,12 +1,12 @@
 import Calendar from "./Calendar"
 import "./Sidebar.css"
 
-const Sidebar = () => {
+const Sidebar = ({eventDate}) => {
 
     return (
         <div className="sidebar">
-        <Calendar />
-    </div>
+            <Calendar eventDate={eventDate} />
+        </div>
     )
     
 };
