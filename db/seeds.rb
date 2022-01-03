@@ -1,4 +1,4 @@
-jim = User.create(name:"Jimbo", username: "jimbotron21", password: "memes")
+    jim = User.create(name:"Jimbo", username: "jimbotron21", password: "memes")
 
 day1 = Day.create(date: "Mon Jan 03 2022")
 
