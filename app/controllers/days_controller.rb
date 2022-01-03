@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
 
-def index
-    days = Day.all
+    def index
+        days = Day.all
         render json: days, status: :ok
     end
     
@@ -15,10 +15,10 @@ def index
         render json: created_day, status: :created
     end
 
-private
+    private
 
-def day_params
-    params.permit(:id, :date)
-end
+    def day_params
+        params.permit(:id, :date)
+    end
 
 end
