@@ -1,20 +1,23 @@
-import Sidebar from "./Sidebar";
 import "./App.css"
-import EventList from "./EventList";
+import Sidebar from "./Sidebar";
+import SelectedDay from "./SelectedDay";
 import { useState } from "react";
 
 function App() {
-  const [selectedDate, setSelectedDate] = useState((new Date()).toLocaleDateString("en-US"))
+  const [selectedDate, setSelectedDate] = useState(new Date())
+  const [eventList, setEventList] = useState(null)
 
-  const dateForEventList = (p) => {
-    setSelectedDate(p)
-  }
+  // function fetchSelectedDay() {
+  //   fetch("localhost:3000/")
+  //     .then((res) => res.json())
+  //     .then((json) => setData(json));
+  // }
 
   return (
     <div className="App">
       <header className="App-header"> 
-        <Sidebar eventDate={dateForEventList} />
-        <EventList selectedDate={selectedDate} />
+        <Sidebar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
+        <SelectedDay selectedDate={selectedDate} />
       </header>
     </div>
   );
