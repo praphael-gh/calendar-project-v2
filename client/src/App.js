@@ -1,11 +1,21 @@
-import "./App.css"
-import Sidebar from "./Sidebar";
-import SelectedDay from "./SelectedDay";
+
 import { useState, useEffect } from "react";
+import { Routes,Route } from "react-router-dom";
+import "./App.css"
+import NavBar from "./NavBar";
+import Home from "./Home";
+import NewEventForm from "./NewEventForm";
+import EventLister from "./EventLister";
+
 
 function App() {
-  const [selectedDate, setSelectedDate] = useState(new Date())
-  const [eventList, setEventList] = useState(null)
+  const [events, setEvents] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:4000/events")
+        .then(resp => resp.json())
+        .then(setEvents)
+    }, [])
 
   
   useEffect(() => {
@@ -21,8 +31,31 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"> 
-        <Sidebar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
-        <SelectedDay selectedDate={selectedDate} />
+      <NavBar />
+        <Routes>
+          <Route path ='/neweventform'
+          element={
+            <>
+            <NewEventForm events={events}/>
+            <EventLister />
+            </>
+          
+          }
+          />
+          
+          <Route path='/event-list'
+          element={
+            <EventLister />
+          } 
+          />
+
+          <Route exact path='/' 
+          element={
+            <Home />
+          }
+          />
+          
+        </Routes>
       </header>
     </div>
   );
