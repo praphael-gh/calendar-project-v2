@@ -36,13 +36,21 @@ function NavBar() {
             Event List
         </NavLink>
         <NavLink
-        to="/newform"
+        to="/new-event"
         exact
         style={linkStyles}
         >
-            New Form
+            New Event
+        </NavLink>
+        <NavLink
+        to="/login"
+        exact
+        style={linkStyles}
+        >
+        Log In
         </NavLink>
         </>
+
     )
 }
 

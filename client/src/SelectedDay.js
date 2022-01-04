@@ -4,7 +4,7 @@ function SelectedDay({selectedDate}) {
 
     return(
         <div className="event_list">
-            <button>Add Event</button>
+            {/* <button>Add Event</button> */}
             <h1>
                 {selectedDate.toDateString()}
                 {/* <EventList /> */}

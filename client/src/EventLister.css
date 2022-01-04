@@ -1,0 +1,9 @@
+
+
+.event_cards {
+    padding-inline: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    background-color: beige;
+    width: 200px;
+}
