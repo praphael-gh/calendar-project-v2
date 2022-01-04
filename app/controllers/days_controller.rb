@@ -2,17 +2,20 @@ class DaysController < ApplicationController
 
     def index
         days = Day.all
-            render json: days, status: :ok
-        end
-    
-    def show
-        selected_day = find_day
-        render json: selected_day, serializer: DayWithEventsSerializer, status: :ok
+        render json: days, status: :ok
     end
+    
 
-    def create
-        created_day = Day.create(day_params)
-        render json: created_day, status: :created
+    def show
+
+        selected_day = find_day
+
+        if selected_day
+                render json: selected_day, serializer: DayWithEventsSerializer, status: :ok
+        else
+            created_day = Day.create(date: params[:date])
+            render json: created_day, status: :created
+        end
     end
 
     private
@@ -22,7 +25,7 @@ class DaysController < ApplicationController
     end
 
     def find_day
-        Day.find_by(params[:date])
+        Day.find_by(date: params[:date])
     end
 
 end
