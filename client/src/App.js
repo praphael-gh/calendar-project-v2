@@ -8,8 +8,6 @@ import NewEventForm from "./NewEventForm";
 import EventLister from "./EventLister";
 
 
-
-
 function App() {
   const [events, setEvents] = useState([])
 
@@ -19,11 +17,16 @@ function App() {
         .then(setEvents)
     }, [])
 
-  // function fetchSelectedDay() {
-  //   fetch("localhost:3000/")
-  //     .then((res) => res.json())
-  //     .then((json) => setData(json));
-  // }
+  
+  useEffect(() => {
+    let date = selectedDate.toDateString()
+    fetch(`http://localhost:4000/days/${date}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setEventList(json);
+      });
+  }, [selectedDate]);
+  
 
   return (
     <div className="App">
