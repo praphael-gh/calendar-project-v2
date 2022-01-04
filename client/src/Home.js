@@ -7,8 +7,9 @@ function Home() {
 
     return (
         <>
-            <Sidebar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
+            
             <SelectedDay selectedDate={selectedDate} />
+            <Sidebar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
         </>
     )
 }

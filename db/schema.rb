@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2021_12_23_172001) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.string "country"
-    t.string "location"
-    t.integer "rating"
+    t.string "where"
+    t.string "description"
+    t.integer "priority"
     t.integer "day_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

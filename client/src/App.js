@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import NewEventForm from "./NewEventForm";
 import EventLister from "./EventLister";
+import LogIn from "./LogIn";
 
 
 function App() {
@@ -18,14 +19,14 @@ function App() {
     }, [])
 
   
-  useEffect(() => {
-    let date = selectedDate.toDateString()
-    fetch(`http://localhost:4000/days/${date}`)
-      .then((res) => res.json())
-      .then((json) => {
-        setEventList(json);
-      });
-  }, [selectedDate]);
+  // useEffect(() => {
+  //   let date = selectedDate.toDateString()
+  //   fetch(`http://localhost:4000/days/${date}`)
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setEventList(json);
+  //     });
+  // }, [selectedDate]);
   
 
   return (
@@ -33,13 +34,13 @@ function App() {
       <header className="App-header"> 
       <NavBar />
         <Routes>
-          <Route path ='/neweventform'
-          element={
-            <>
-            <NewEventForm events={events}/>
-            <EventLister />
-            </>
-          
+          <Route path ='/login'
+          element={<LogIn />
+          }
+          />
+
+          <Route path ='/new-event'
+          element={<NewEventForm events={events}/>
           }
           />
           

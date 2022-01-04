@@ -21,11 +21,15 @@ function NewEventForm({events}) {
         <>
         <h1>Add Your Event:</h1>
         <form>
-            <input />
-            <input />
+            <input type="text" placeholder="Name of Event?"/>
+            <input type="text" placeholder="Where is it?"/>
+            <input type="text" placeholder="What are you doing?" />
+            <input type="text" placeholder="When? (YYYY/MM/DD)" />
+            <input type="integer" placeholder="Priority 1 - 10?" />
+            <button>Create Event</button>
         </form>
         <div className="eventlist">
-        <EventLister />
+        {/* <EventLister /> */}
         </div>
         </>
     )
