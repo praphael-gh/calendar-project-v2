@@ -1,17 +1,22 @@
 import "./App.css"
 import Sidebar from "./Sidebar";
 import SelectedDay from "./SelectedDay";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [eventList, setEventList] = useState(null)
 
-  // function fetchSelectedDay() {
-  //   fetch("localhost:3000/")
-  //     .then((res) => res.json())
-  //     .then((json) => setData(json));
-  // }
+  
+  useEffect(() => {
+    let date = selectedDate.toDateString()
+    fetch(`http://localhost:4000/days/${date}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setEventList(json);
+      });
+  }, [selectedDate]);
+  
 
   return (
     <div className="App">
