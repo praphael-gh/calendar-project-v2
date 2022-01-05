@@ -11,7 +11,8 @@ function Home() {
         fetch(`http://localhost:4000/days/${date}`)
           .then((res) => res.json())
           .then((json) => {
-            setEventList(json);
+            console.log(json)
+            setEventList(json.events);
         });
       }, [selectedDate]);
 
@@ -19,7 +20,7 @@ function Home() {
     return (
         <>
             
-            <SelectedDay selectedDate={selectedDate} />
+            <SelectedDay selectedDate={selectedDate} eventList={eventList}/>
             <Sidebar setSelectedDate={setSelectedDate} selectedDate={selectedDate} />
         </>
     )
