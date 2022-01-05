@@ -12,7 +12,7 @@ function Home() {
           .then((res) => res.json())
           .then((json) => {
             console.log(json)
-            setEventList(json.events);
+            setEventList(...eventList, json.events);
         });
       }, [selectedDate]);
 
