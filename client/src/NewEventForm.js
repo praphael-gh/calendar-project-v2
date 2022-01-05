@@ -16,8 +16,6 @@ function NewEventForm({selectedDate}) {
             date: selectedDate.toDateString()
         }
         fetch('http://localhost:4000/events', {
-            mode: 'cors',
-            credentials:'include',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
