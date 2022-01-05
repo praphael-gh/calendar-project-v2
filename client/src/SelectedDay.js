@@ -1,17 +1,16 @@
+import NewEventForm from "./NewEventForm";
+
 
 function SelectedDay({selectedDate}) {
 
-
     return(
         <div className="event_list">
-            {/* <button>Add Event</button> */}
+            <NewEventForm selectedDate={selectedDate}/>
             <h1>
                 {selectedDate.toDateString()}
-                {/* <EventList /> */}
-                {/* {eventCards} */}
             </h1>
         </div>
-    )
+    )    
 }
 
 export default SelectedDay;
