@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
 
     def index
-    events = Event.all
-        render json: events, status: :ok
+        events = Event.all
+        render json: events, each_serializer: EventsWithDaySerializer, status: :ok
     end
 
     def show
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 private
 
 def event_params
-    params.permit(:id, :name, :country, :location, :rating, :user_id, :day_id)
+    params.permit(:id, :name, :where, :description, :priority, :user_id, :day_id)
 end
 
 end

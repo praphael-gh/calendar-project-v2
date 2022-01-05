@@ -7,7 +7,9 @@ function EventLister() {
     useEffect(() => {
         fetch("http://localhost:4000/events")
         .then(resp => resp.json())
-        .then(setEvents)
+        .then((json) => {
+            setEvents(json);
+        });
     }, [])
 
     return (
@@ -17,8 +19,9 @@ function EventLister() {
                     <div className='event_container'>
                         <div className='event_cards'>
                                 <p><b>Name:</b> {date_event.name}</p>
-                                <p><b>Country:</b> {date_event.country}</p>
-                                <p><b>Location:</b> {date_event.location}</p>
+                                <p><b>Where:</b> {date_event.where}</p>
+                                <p><b>Description:</b> {date_event.description}</p>
+                                <p><b>Date:</b> {date_event.day.date}</p>
                         </div>
                     </div>
                     

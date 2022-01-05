@@ -1,10 +1,20 @@
 import EventLister from "./EventLister"
+import {useState} from 'react'
 
-function NewEventForm({events}) {
+function NewEventForm({selectedDate}) {
+    const [name, setName] = useState("")
+    const [where, setWhere] = useState("")
+    const [desc, setDesc] = useState("")
+    const [priority, setPriority] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        const formData = {}
+        const formData = {
+            name: name,
+            where: where,
+            description: desc,
+            priority: priority
+        }
         fetch('http://localhost:4000', {
             method: 'POST',
             headers: {
@@ -20,16 +30,14 @@ function NewEventForm({events}) {
     return (
         <>
         <h1>Add Your Event:</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
             <input type="text" placeholder="Name of Event?"/>
             <input type="text" placeholder="Where is it?"/>
             <input type="text" placeholder="What are you doing?" />
-            <input type="text" placeholder="When? (YYYY/MM/DD)" />
             <input type="integer" placeholder="Priority 1 - 10?" />
-            <button>Create Event</button>
+            <button type="submit">Create Event</button>
         </form>
         <div className="eventlist">
-        {/* <EventLister /> */}
         </div>
         </>
     )
