@@ -13,7 +13,8 @@ function NewEventForm({selectedDate}) {
             name: name,
             where: where,
             description: desc,
-            priority: priority
+            priority: priority,
+            date: selectedDate
         }
         fetch('http://localhost:4000', {
             method: 'POST',
@@ -31,10 +32,10 @@ function NewEventForm({selectedDate}) {
         <>
         <h1>Add Your Event:</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Name of Event?"/>
-            <input type="text" placeholder="Where is it?"/>
-            <input type="text" placeholder="What are you doing?" />
-            <input type="integer" placeholder="Priority 1 - 10?" />
+            <input type="text" placeholder="Name of Event?"/><br/>
+            <input type="text" placeholder="Where is it?"/><br/>
+            <input type="text" placeholder="What are you doing?" /><br/>
+            <input type="integer" placeholder="Priority 1 - 10?" /><br/>
             <button type="submit">Create Event</button>
         </form>
         <div className="eventlist">
