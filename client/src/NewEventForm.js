@@ -1,4 +1,3 @@
-import EventLister from "./EventLister"
 import {useState} from 'react'
 
 function NewEventForm({selectedDate}) {
@@ -13,17 +12,19 @@ function NewEventForm({selectedDate}) {
             name: name,
             where: where,
             description: desc,
-            priority: priority
+            priority: priority,
+            date: selectedDate.toDateString()
         }
-        fetch('http://localhost:4000', {
+        fetch('http://localhost:4000/events', {
+            mode: 'cors',
+            credentials:'include',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify(formData)
         }).then(resp => resp.json())
-        .then((newEvent) =>
-        (newEvent))
+        .then((newEvent) => (newEvent))
     }
 
 
@@ -31,10 +32,10 @@ function NewEventForm({selectedDate}) {
         <>
         <h1>Add Your Event:</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Name of Event?"/>
-            <input type="text" placeholder="Where is it?"/>
-            <input type="text" placeholder="What are you doing?" />
-            <input type="integer" placeholder="Priority 1 - 10?" />
+            <input type="text" placeholder="Name of Event?" onChange={(e) => setName(e.target.value)}/>
+            <input type="text" placeholder="Where is it?" onChange={(e) => setWhere(e.target.value)}/>
+            <input type="text" placeholder="What are you doing?" onChange={(e) => setDesc(e.target.value)}/>
+            <input type="integer" placeholder="Priority 1 - 10?" onChange={(e) => setPriority(e.target.value)}/>
             <button type="submit">Create Event</button>
         </form>
         <div className="eventlist">
