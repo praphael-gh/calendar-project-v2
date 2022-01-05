@@ -30,10 +30,13 @@ function NewEventForm({selectedDate}) {
         <>
         <h1>Add Your Event:</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Name of Event?" onChange={(e) => setName(e.target.value)}/>
+            <input type="text" placeholder="Name of Event?" onChange={(e) => setName(e.target.value)}/><br/>
             <input type="text" placeholder="Where is it?" onChange={(e) => setWhere(e.target.value)}/>
+            <br/>
             <input type="text" placeholder="What are you doing?" onChange={(e) => setDesc(e.target.value)}/>
+            <br/>
             <input type="integer" placeholder="Priority 1 - 10?" onChange={(e) => setPriority(e.target.value)}/>
+            <br/>
             <button type="submit">Create Event</button>
         </form>
         <div className="eventlist">

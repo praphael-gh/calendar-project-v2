@@ -14,7 +14,7 @@ class DaysController < ApplicationController
                 render json: selected_day, serializer: DayWithEventsSerializer, status: :ok
         else
             created_day = Day.create(date: params[:date])
-            render json: created_day, status: :created
+            render json: created_day, serializer: DayWithEventsSerializer, status: :created
         end
     end
 
