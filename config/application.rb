@@ -25,5 +25,6 @@ module CalenderProject
         resource '/*', :headers => :any, :methods => :patch
       end
     end
+
   end
 end
