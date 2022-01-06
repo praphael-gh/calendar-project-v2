@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     end
 
     def show
-        selected_event = Event.find(params[:date])
+        selected_event = Event.find(params[:id])
         render json: selected_event, status: :ok
     end
 

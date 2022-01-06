@@ -21,13 +21,13 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
   // const [selectedDate, setSelectedDate] = useState(new Date());
   const [activeDate, setActiveDate] = useState(new Date());
 
-  console.log(activeDate.toLocaleDateString("en-US"),
-            selectedDate.toLocaleDateString("en-US"))
+  // console.log(activeDate.toLocaleDateString("en-US"),
+  //           selectedDate.toLocaleDateString("en-US"))
 
   const getHeader = () => {
     return (
       <div className="header">
-        <div
+        <div key='today-button'
           className="todayButton"
           onClick={() => {
             setSelectedDate(new Date());
@@ -37,15 +37,15 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
         >
           Today
         </div>
-        <AiOutlineLeft
+        <AiOutlineLeft key='left'
           className="navIcon"
           onClick={() => setActiveDate(subMonths(activeDate, 1))}
         />
-        <AiOutlineRight
+        <AiOutlineRight key='right'
           className="navIcon"
           onClick={() => setActiveDate(addMonths(activeDate, 1))}
         />
-        <h2 className="currentMonth">{format(activeDate, "MMMM yyyy")}</h2>
+        <h2 key='month' className="currentMonth">{format(activeDate, "MMMM yyyy")}</h2>
       </div>
     );
   };
@@ -55,7 +55,7 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
     const weekDays = [];
     for (let day = 0; day < 7; day++) {
       weekDays.push(
-        <div className="day weekNames">
+        <div key={day} className="day weekNames">
           {format(addDays(weekStartDate, day), "E")}
         </div>
       );
@@ -69,7 +69,7 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
     for (let day = 0; day < 7; day++) {
       const cloneDate = currentDate;
       week.push(
-        <div
+        <div 
           className={`day ${
             isSameMonth(currentDate, activeDate) ? "" : "inactiveDay"
           } ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}
@@ -84,7 +84,8 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
       );
       currentDate = addDays(currentDate, 1);
     }
-    return <>{week}</>;
+    
+    return <React.Fragment key={date}>{week}</React.Fragment>;
   };
 
   const getDates = () => {
@@ -104,7 +105,7 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
       currentDate = addDays(currentDate, 7);
     }
 
-    return <div className="weekContainer">{allWeeks}</div>;
+    return <div key='' className="weekContainer">{allWeeks}</div>;
   };
 
   return (

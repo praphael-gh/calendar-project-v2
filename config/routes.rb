@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   resources :days, only: [:index]
   get 'days/:date', to: 'days#show'
 
-  
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-
 
 end  
 

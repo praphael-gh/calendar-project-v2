@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const LogIn = ({onLogin}) => {
     const [username, setUsername] = useState("")
-    const [newUserame, setNewUsername] = useState("")
+    const [newUsername, setNewUsername] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -24,9 +24,9 @@ const LogIn = ({onLogin}) => {
       const handleNewUserSubmit = (event) => {
         event.preventDefault()
         const formData = {
-            username: newUserame
+            username: newUsername
         }
-        fetch('http://localhost:3000/users', {
+        fetch('/users', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(formData)
@@ -53,7 +53,7 @@ const LogIn = ({onLogin}) => {
 
         </div>
             <form onSubmit={handleNewUserSubmit}>
-                <input type="text" placeholder="Username" value={newUserame} onChange={(e) => setNewUsername(e.target.value)}/>
+                <input type="text" placeholder="Username" value={newUsername} onChange={(e) => setNewUsername(e.target.value)}/>
             {/* <input type="text" placeholder="Password"/> */}
             {/* <input type="text" placeholder="Confirm Password"/> */}
                 <button type="submit">Create Account</button>
