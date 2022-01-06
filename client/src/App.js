@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from 'react'
 import { Routes,Route } from "react-router-dom";
 import "./App.css"
 import NavBar from "./NavBar";
@@ -7,32 +8,50 @@ import EventLister from "./EventLister";
 import LogIn from "./LogIn";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header"> 
-      <NavBar />
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (user) {
+    return (
+      <>
+      <h2>Welcome, {user.username}!</h2>
+      <div className="App">
+      <NavBar onLogout={setUser}/>
         <Routes>
-          <Route path ='/login'
-          element={<LogIn />
-          }
+          <Route path='/logout'
+          element={
+            <LogIn />
+          } 
           />
-          
           <Route path='/event-list'
           element={
             <EventLister />
           } 
           />
-
           <Route exact path='/' 
           element={
             <Home />
           }
           />
-          
         </Routes>
-      </header>
-    </div>
-  );
+      </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+      <LogIn onLogin={setUser} />
+      </>
+    );
+  }
+
 }
 
 export default App;

@@ -16,7 +16,7 @@ function NewEventForm({selectedDate, eventList, setEventList}) {
             user_id: 1,
             day_id: selectedDate
         }
-        fetch('http://localhost:4000/events', {
+        fetch('http://localhost:3000/events', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(formData)
