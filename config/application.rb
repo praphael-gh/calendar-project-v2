@@ -20,7 +20,7 @@ module CalenderProject
     config.middleware.use Rack::Cors do
       allow do
         origins '*'
-        resource '/*', :headers => :any, :methods => :patch
+        resource '/*', :headers => :any, :methods => [:get, :post, :patch]
       end
     end
   end

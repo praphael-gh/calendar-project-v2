@@ -17,7 +17,7 @@ import {
 
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-const Calendar = ({setSelectedDate, selectedDate}) => {
+const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
   // const [selectedDate, setSelectedDate] = useState(new Date());
   const [activeDate, setActiveDate] = useState(new Date());
 
@@ -75,6 +75,7 @@ const Calendar = ({setSelectedDate, selectedDate}) => {
           } ${isSameDay(currentDate, selectedDate) ? "selectedDay" : ""}
           ${isSameDay(currentDate, new Date()) ? "today" : ""}`}
           onClick={() => {
+            setEventList([])
             setSelectedDate(cloneDate);
           }}
         >

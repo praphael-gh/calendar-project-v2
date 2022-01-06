@@ -1,7 +1,7 @@
 import NewEventForm from "./NewEventForm";
 
 
-function SelectedDay({selectedDate, eventList}) {
+function SelectedDay({selectedDate, eventList, dayInstance}) {
 
     const events = eventList.map((d) => {
         return(
@@ -26,7 +26,7 @@ function SelectedDay({selectedDate, eventList}) {
             <div className="event_container">
                 {events}
             </div>
-            <NewEventForm selectedDate={selectedDate}/>
+            <NewEventForm selectedDate={selectedDate} dayInstance={dayInstance}/>
         </div>
     )    
 }
