@@ -1,7 +1,7 @@
 import NewEventForm from "./NewEventForm";
 
 
-function SelectedDay({selectedDate, eventList, dayInstance}) {
+function SelectedDay({selectedDate, eventList, selectedDayID, setEventList, handleDeleteEvent}) {
 
     const events = eventList.map((d) => {
         return(
@@ -10,6 +10,7 @@ function SelectedDay({selectedDate, eventList, dayInstance}) {
                 <p><b>Name:</b> {d.name}</p>
                 <p><b>Where:</b> {d.where}</p>
                 <p><b>Description:</b> {d.description}</p>
+                <button onClick={() => handleDeleteEvent(d.id)}>Delete Event</button>
             </div>
             </>
             
@@ -26,7 +27,7 @@ function SelectedDay({selectedDate, eventList, dayInstance}) {
             <div className="event_container">
                 {events}
             </div>
-            <NewEventForm selectedDate={selectedDate} dayInstance={dayInstance}/>
+            <NewEventForm selectedDate={selectedDayID} setEventList={setEventList} eventList={eventList}/>
         </div>
     )    
 }

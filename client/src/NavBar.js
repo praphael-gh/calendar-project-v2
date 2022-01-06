@@ -1,7 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom"  
 
-function NavBar() {
+function NavBar({onLogout}) {
+
+    function handleLogout() {
+        fetch("/logout", {
+          method: "DELETE",
+        }).then(() => onLogout());
+      }
+
     const linkStyles = {
         display:"inline-block",
         width: "75px",
@@ -36,13 +43,15 @@ function NavBar() {
             Event List
         </NavLink>
         <NavLink
-        to="/login"
+        to="/"
         exact
         style={linkStyles}
+        onClick={onLogout, handleLogout}
         >
-        Log In
+        Log Out
         </NavLink>
         </>
+
 
     )
 }

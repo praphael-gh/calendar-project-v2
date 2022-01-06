@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
-const LogIn = () => {
+const LogIn = ({onLogin}) => {
     const [username, setUsername] = useState("")
+    const [newUserame, setNewUsername] = useState("")
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -9,12 +10,31 @@ const LogIn = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            'Accept': 'application/json',
           },
           body: JSON.stringify({ username }),
         })
-          .then((r) => r.json())
-          .then((user) => onLogin(user));
+        .then((r) => {
+            if (r.ok) {
+              r.json().then((user) => onLogin(user));
+            }
+          });
       }
+
+      const handleNewUserSubmit = (event) => {
+        event.preventDefault()
+        const formData = {
+            username: newUserame
+        }
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+        }).then(resp => resp.json())
+        .then((data) => {
+            setNewUsername('')
+        })
+    }
 
     return (
         <>
@@ -32,8 +52,8 @@ const LogIn = () => {
         <div className='create_account'>
 
         </div>
-            <form>
-                <input type="text" placeholder="Username"/>
+            <form onSubmit={handleNewUserSubmit}>
+                <input type="text" placeholder="Username" value={newUserame} onChange={(e) => setNewUsername(e.target.value)}/>
             {/* <input type="text" placeholder="Password"/> */}
             {/* <input type="text" placeholder="Confirm Password"/> */}
                 <button type="submit">Create Account</button>
