@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function NewEventForm({selectedDate}) {
+function NewEventForm({selectedDate, eventList, setEventList}) {
     const [name, setName] = useState("")
     const [where, setWhere] = useState("")
     const [desc, setDesc] = useState("")
@@ -13,16 +13,17 @@ function NewEventForm({selectedDate}) {
             where: where,
             description: desc,
             priority: priority,
-            date: selectedDate.toDateString()
+            user_id: 1,
+            day_id: selectedDate
         }
         fetch('http://localhost:4000/events', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(formData)
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
         }).then(resp => resp.json())
-        .then((newEvent) => (newEvent))
+        .then((data) => {
+            setEventList([...eventList, data])
+        })
     }
 
 
