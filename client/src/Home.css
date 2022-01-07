@@ -1,0 +1,13 @@
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow:column-reverse;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 500px;
+    margin-right: 500px;
+    background-color: #ffc0cb;
+}
+
+#selected-day {
+    border-style: solid;
+}

@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import EventLister from "./EventLister";
 import LogIn from "./LogIn";
+import About from './About';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -20,33 +21,43 @@ function App() {
 
   if (user) {
     return (
-      <>
-      <h2>Welcome, {user.username}!</h2>
       <div className="App">
-      <NavBar onLogout={setUser}/>
+      
+      <div className='app_navbar'>
+        <NavBar onLogout={setUser}/>
+      </div>
         <Routes>
           <Route path='/logout'
           element={
             <LogIn />
           } 
           />
-          <Route path='/event-list'
+            <Route path='/event-list'
           element={
-            <EventLister />
+            <EventLister user={user}/>
+          } 
+          />
+        
+          <Route path='/about'
+          element={
+            <About />
           } 
           />
           <Route exact path='/' 
           element={
-            <Home />
+            <div className='home_route'>
+              <h1>Welcome, {user.username}!</h1>
+              <Home user={user}/>
+            </div>
           }
           />
         </Routes>
       </div>
-      </>
     );
   } else {
     return (
       <>
+      <h1>Welcome to Calendlister 📅</h1>
       <LogIn onLogin={setUser} />
       </>
     );
