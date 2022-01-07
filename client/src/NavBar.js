@@ -17,39 +17,43 @@ function NavBar({onLogout}) {
         background: "blue",
         textDecoration: "none",
         color: "white",
+        fontFamily: 'Segoe UI'
     }
     return (
         <>
-        <NavLink
-        to="/"
-        exact
-        style={linkStyles}
-        >
-            Home
-        </NavLink>
-        <NavLink
-        to="/about"
-        exact
-        style={linkStyles}
-    
-        >
-            About
-        </NavLink>
-        <NavLink
-        to="/event-list"
-        exact
-        style={linkStyles}
-        >
-            Event List
-        </NavLink>
-        <NavLink
-        to="/"
-        exact
-        style={linkStyles}
-        onClick={onLogout, handleLogout}
-        >
-        Log Out
-        </NavLink>
+        <div className="navbar">
+            <NavLink
+            to="/"
+            exact
+            style={linkStyles}
+            >
+                Home
+            </NavLink>
+            <NavLink
+            to="/about"
+            exact
+            style={linkStyles}
+        
+            >
+                About
+            </NavLink>
+            <NavLink
+            to="/event-list"
+            exact
+            style={linkStyles}
+            >
+                Event List
+            </NavLink>
+            <NavLink
+            to="/"
+            exact
+            style={linkStyles}
+            onClick={onLogout, handleLogout}
+            >
+                Log Out
+            </NavLink>
+        </div>
+        
         </>
 
 

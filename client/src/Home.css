@@ -1,0 +1,13 @@
+.home {
+    /* width: 50%; */
+    /* float:left; */
+    /* border-style: solid; */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 400px;
+    margin-right:400px;
+    background-color: #ffc0cb;
+}
+
+#selected-day {
+    border-style: solid;
+}

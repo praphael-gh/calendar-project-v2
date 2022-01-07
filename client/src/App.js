@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import EventLister from "./EventLister";
 import LogIn from "./LogIn";
+import About from './About';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -20,19 +21,27 @@ function App() {
 
   if (user) {
     return (
-      <>
-      <h2>Welcome, {user.username}!</h2>
       <div className="App">
-      <NavBar onLogout={setUser}/>
+      
+      <div className='app_navbar'>
+        <h1>Welcome, {user.username}!</h1>
+        <NavBar onLogout={setUser}/>
+      </div>
         <Routes>
           <Route path='/logout'
           element={
             <LogIn />
           } 
           />
-          <Route path='/event-list'
+            <Route path='/event-list'
           element={
             <EventLister />
+          } 
+          />
+        
+          <Route path='/about'
+          element={
+            <About />
           } 
           />
           <Route exact path='/' 
@@ -42,7 +51,6 @@ function App() {
           />
         </Routes>
       </div>
-      </>
     );
   } else {
     return (

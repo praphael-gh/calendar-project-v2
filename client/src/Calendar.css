@@ -1,5 +1,10 @@
 
 
+.calendar {
+  /* float:left; */
+  margin-inline: 25px;
+}
+
 .changeMonth {
     margin: 0px 20px;
   }
@@ -11,7 +16,7 @@
   
 
   svg.navIcon {
-    background-color: pink;
+    background-color: #ffc0cb;
   }
   
   .currentMonth {
@@ -25,7 +30,7 @@
   }
   
   .day {
-    margin: 12px;
+    margin: 10px;
     height: 30px;
     width: 30px;
     cursor: pointer;

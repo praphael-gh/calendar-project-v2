@@ -1,4 +1,11 @@
+* {
+    text-align: center;
+}
+
+
 .sidebar {
-    float:left;
+    align-content: center;
+    /* float:left; */
+    border-style:solid;
     background-color: pink;
 }

@@ -27,16 +27,6 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
   const getHeader = () => {
     return (
       <div className="header">
-        <div key='today-button'
-          className="todayButton"
-          onClick={() => {
-            setSelectedDate(new Date());
-            setActiveDate(new Date());
-            
-          }}
-        >
-          Today
-        </div>
         <AiOutlineLeft key='left'
           className="navIcon"
           onClick={() => setActiveDate(subMonths(activeDate, 1))}

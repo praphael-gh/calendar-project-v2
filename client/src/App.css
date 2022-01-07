@@ -1,2 +1,8 @@
+* {
+    text-align: center;
+}
 
+.app_navbar > h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
 

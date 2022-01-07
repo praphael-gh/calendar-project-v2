@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import './Home.css'
 import Sidebar from './Sidebar'
 import SelectedDay from './SelectedDay'
 
@@ -47,11 +48,12 @@ function Home() {
 
 
     return (
-        <>
-            
+        <div className='home'>
+          <div id='selected-day'>
             <SelectedDay selectedDate={selectedDate} eventList={eventList} selectedDayID={selectedDayID} setEventList={setEventList} handleDeleteEvent={handleDeleteEvent} handleEventChange={handleEventChange} prio={prio} setPrio={setPrio}/>
+          </div>
             <Sidebar setSelectedDate={setSelectedDate} selectedDate={selectedDate} setEventList={setEventList} />
-        </>
+        </div>
     )
 }
 
