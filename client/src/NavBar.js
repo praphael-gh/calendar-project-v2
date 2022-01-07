@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom"  
+// import './NavBar.css'
 
 function NavBar({onLogout}) {
 
@@ -13,14 +14,13 @@ function NavBar({onLogout}) {
         display:"inline-block",
         width: "75px",
         padding: "12px",
-        margin: "0 6px 6px",
+        margin: "30px 10px",
         background: "blue",
         textDecoration: "none",
         color: "white",
         fontFamily: 'Segoe UI'
     }
     return (
-        <>
         <div className="navbar">
             <NavLink
             to="/"
@@ -53,10 +53,6 @@ function NavBar({onLogout}) {
                 Log Out
             </NavLink>
         </div>
-        
-        </>
-
-
     )
 }
 

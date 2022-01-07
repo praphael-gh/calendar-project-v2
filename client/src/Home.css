@@ -1,10 +1,10 @@
 .home {
-    /* width: 50%; */
-    /* float:left; */
-    /* border-style: solid; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow:column-reverse;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 400px;
-    margin-right:400px;
+    margin-left: 500px;
+    margin-right: 500px;
     background-color: #ffc0cb;
 }
 

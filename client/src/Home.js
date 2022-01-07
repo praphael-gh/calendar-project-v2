@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'
 import SelectedDay from './SelectedDay'
 
 
-function Home() {
+function Home({user}) {
     const [selectedDate, setSelectedDate] = useState(new Date())
     const [eventList, setEventList] = useState([])
     const [selectedDayID, setSelectedDayID] = useState(null)
@@ -50,7 +50,7 @@ function Home() {
     return (
         <div className='home'>
           <div id='selected-day'>
-            <SelectedDay selectedDate={selectedDate} eventList={eventList} selectedDayID={selectedDayID} setEventList={setEventList} handleDeleteEvent={handleDeleteEvent} handleEventChange={handleEventChange} prio={prio} setPrio={setPrio}/>
+            <SelectedDay selectedDate={selectedDate} eventList={eventList} selectedDayID={selectedDayID} setEventList={setEventList} handleDeleteEvent={handleDeleteEvent} handleEventChange={handleEventChange} prio={prio} setPrio={setPrio} user={user}/>
           </div>
             <Sidebar setSelectedDate={setSelectedDate} selectedDate={selectedDate} setEventList={setEventList} />
         </div>

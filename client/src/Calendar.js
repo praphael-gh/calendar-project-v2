@@ -95,7 +95,7 @@ const Calendar = ({setSelectedDate, selectedDate, setEventList}) => {
       currentDate = addDays(currentDate, 7);
     }
 
-    return <div key='' className="weekContainer">{allWeeks}</div>;
+    return <div key='' className="allWeeksContainer">{allWeeks}</div>;
   };
 
   return (

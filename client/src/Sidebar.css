@@ -5,7 +5,7 @@
 
 .sidebar {
     align-content: center;
-    /* float:left; */
+    float:right;
     border-style:solid;
     background-color: pink;
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './LogIn.css'
 
 const LogIn = ({onLogin}) => {
     const [username, setUsername] = useState("")
@@ -37,30 +38,23 @@ const LogIn = ({onLogin}) => {
     }
 
     return (
-        <>
-        
+    
+        <div className='login_page'>
         <h2>Log In</h2>
-        <div className="login">
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            {/* <input type="text" placeholder="Password"/> */}
-                <button type="submit">Log In</button>
-            </form>
-            
-        </div>
+            <div className="login">
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
         <h2>Create an Account:</h2>
-        <div className='create_account'>
-
+            <div className='create_account'> 
+                <form onSubmit={handleNewUserSubmit}>
+                    <input type="text" placeholder="Username" value={newUsername} onChange={(e) => setNewUsername(e.target.value)}/>
+                    <button type="submit">Create Account</button>
+                </form>
+            </div>
         </div>
-            <form onSubmit={handleNewUserSubmit}>
-                <input type="text" placeholder="Username" value={newUsername} onChange={(e) => setNewUsername(e.target.value)}/>
-            {/* <input type="text" placeholder="Password"/> */}
-            {/* <input type="text" placeholder="Confirm Password"/> */}
-                <button type="submit">Create Account</button>
-            </form>
-            
-        </>
-        
     )
 }
 

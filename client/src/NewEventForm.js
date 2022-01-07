@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function NewEventForm({selectedDate, eventList, setEventList}) {
+function NewEventForm({selectedDate, eventList, setEventList, user}) {
     const [name, setName] = useState("")
     const [where, setWhere] = useState("")
     const [desc, setDesc] = useState("")
@@ -13,7 +13,7 @@ function NewEventForm({selectedDate, eventList, setEventList}) {
             where: where,
             description: desc,
             priority: priority,
-            user_id: 1,
+            user_id: user.id,
             day_id: selectedDate
         }
         fetch('http://localhost:3000/events', {

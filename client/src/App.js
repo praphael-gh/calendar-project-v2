@@ -24,7 +24,6 @@ function App() {
       <div className="App">
       
       <div className='app_navbar'>
-        <h1>Welcome, {user.username}!</h1>
         <NavBar onLogout={setUser}/>
       </div>
         <Routes>
@@ -35,7 +34,7 @@ function App() {
           />
             <Route path='/event-list'
           element={
-            <EventLister />
+            <EventLister user={user}/>
           } 
           />
         
@@ -46,7 +45,10 @@ function App() {
           />
           <Route exact path='/' 
           element={
-            <Home />
+            <div className='home_route'>
+              <h1>Welcome, {user.username}!</h1>
+              <Home user={user}/>
+            </div>
           }
           />
         </Routes>
@@ -55,6 +57,7 @@ function App() {
   } else {
     return (
       <>
+      <h1>Welcome to Calendlister 📅</h1>
       <LogIn onLogin={setUser} />
       </>
     );

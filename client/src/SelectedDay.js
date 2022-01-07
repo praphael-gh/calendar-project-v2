@@ -1,8 +1,8 @@
 import NewEventForm from "./NewEventForm";
-import React, {useState} from 'react'
+import React from 'react'
 
 
-function SelectedDay({selectedDate, eventList, selectedDayID, setEventList, handleDeleteEvent, handleEventChange, prio, setPrio}) {
+function SelectedDay({selectedDate, eventList, selectedDayID, setEventList, handleDeleteEvent, handleEventChange, prio, setPrio, user}) {
 
     const events = eventList.map((d) => {
         // console.log(d)
@@ -13,6 +13,7 @@ function SelectedDay({selectedDate, eventList, selectedDayID, setEventList, hand
                 <p><b>Where:</b> {d.where}</p>
                 <p><b>Description:</b> {d.description}</p>
                 <p><b>Priority:</b> {d.priority}</p>
+                <p><b>User ID:</b> {d.user_id}</p>
                 <button onClick={() => handleDeleteEvent(d.id)}>Delete Event</button>
                 <form id={d.id} onSubmit={handleEventChange}>
                     <button type="submit" >Change Priority</button>
@@ -35,7 +36,7 @@ function SelectedDay({selectedDate, eventList, selectedDayID, setEventList, hand
             <div className="event_container">
                 {events}
             </div>
-            <NewEventForm selectedDate={selectedDayID} setEventList={setEventList} eventList={eventList}/>
+            <NewEventForm selectedDate={selectedDayID} setEventList={setEventList} eventList={eventList} user={user}/>
         </div>
     )    
 }
